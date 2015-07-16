@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="HApp">
+<head>
+	<meta charset="UTF-8">
+	<title>HWorld</title>
+</head>
+<body ng-controller="HController">
+	<button ng-click="increment()">Clicar</button>
+	<label>Você Clicou: {{total}} veze(s)</label>
+	
+	<footer ng-controller="FooterController">
+		{{copyright}}
+	</footer>
+	<script type="text/javascript" src="js/angular12.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/HController.js"></script>
+	<script type="text/javascript" src="js/FooterController.js"></script>
+</body>
+</html>

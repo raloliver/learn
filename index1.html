@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery</title>
+</head>
+<body>
+	<h1>Hello World</h1>
+	<label>Nome:</label>
+	<input id="name"/>
+	<input id="copy-button" type="button" value="copiar">
+	<h2 id="copy-text"></h2>
+	<script src="js/jquery.js"></script>
+	<script>
+		$('#copy-button').on("click", function(){
+			// val: elementos que exibem informações
+			var name = $('#name').val();
+			// text: elementos de entrada de dados
+			$('#copy-text').text(name);
+			/*--
+			// outras funções: atalhos da função "on"
+			$('#copy-text').blur(...);
+			// quando deixa o campo
+			$('#copy-text').mouseover(...);
+			// quando passar o mouse
+			$('#copy-text').dblclick(...);
+			// ao clicar duas vezes
+			$('#copy-text').change(...);
+			// ao trocar o valor
+			--*/
+		});		
+	</script>
+</body>
+</html>

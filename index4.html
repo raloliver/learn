@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery</title>
+</head>
+<body>
+	<!-- ao atualizar a lista, perdemos os itens, porém ao submeter uma requisição assincrona com AJAX, as respostas podem ser XML, HTML ou jSON (bem melhor que XML) -->
+	<h1>List</h1>
+
+	<input id="up-button" type="button" value="atualizar"/>
+
+	<ul id="list">
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+		<li>Item 4</li>
+	</ul>
+
+	<label>Nome:</label>
+	<input id="name"/>
+	<input id="add-button" type="button" value="adicionar"/>
+
+	<script src="js/jquery.js"></script>
+	<script>
+			// remover li ao em dois cliques
+		$('#list').on("dblclick", "li", function(){
+			// função animate vai antes do remove
+			$(this).animate({"margin-left": "+=100"}, function()
+			{
+			// o remove é passado dentro de uma função após o animate
+				$(this).remove();
+			});
+		});
+
+		$('#add-button').click(function(){
+			var texto = $('#name').val();
+			// a tag $ tbm é um criador de elementos, basta informar o elemento que queremos criar 
+			// a função .css recebe primeiro a propriedade e dp o valor
+			$('<li>').text(texto).css({'color' : '#f00', 'background-color' : '#eee'}).appendTo('#list');
+		});
+
+		$('#up-button').click (function(){
+			$.ajax({ 
+				url: 'http://localhost/learn/joomla.json',
+				dataType: 'json',
+				sucess: function (retorno) {
+					// função each substitue o "for"
+					$.each(retorno.site, function (){
+						
+						var mipv = this;
+
+						alert(mipv.name);
+					});
+				}
+
+			});
+		})
+	</script>
+</body>
+</html>

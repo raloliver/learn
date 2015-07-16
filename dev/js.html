@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <script>
+//        alert("Teste");
+        var total = 1 + 2;
+
+        console.log(total);
+        console.log("Teste Console");
+
+        var indivuduo = {
+            name    : "Israel",
+            age     : 29,
+            status  : false
+        }
+
+        console.log(indivuduo);
+
+        var grupo = [];
+
+        grupo.push(indivuduo);
+        grupo.push(indivuduo);
+        grupo.push(indivuduo);
+        grupo.push(indivuduo);
+
+        console.log(grupo);
+
+        if (indivuduo.status == true) {
+            console.log("O user " +indivuduo.name+ " ativado!");
+        }else{
+            console.log("O user " +indivuduo.name+ " desativado!");
+        }
+
+        for (var i = 1; i <= 20; i++) {
+            document.write("<p>" + i + "</p>");
+        }
+
+        function loadWindow() {
+            document.getElementById("campo").value = total;
+        }
+    </script>
+</head>
+<body onload="loadWindow()">
+    <input id="campo" type="text" value="">
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery</title>
+</head>
+<body>
+	<h1>List</h1>
+
+	<ul id="list">
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+		<li>Item 4</li>
+	</ul>
+
+	<label>Nome:</label>
+	<input id="name"/>
+	<input id="add-button" type="button" value="adicionar"/>
+
+	<script src="js/jquery.js"></script>
+	<script>
+			// remover li ao em dois cliques
+		$('#list').on("dblclick", "li", function(){
+			// função animate vai antes do remove
+			$(this).animate({"margin-left": "+=100"}, function()
+			{
+				// o remove é passado dentro de uma função após o animate
+				$(this).remove();
+			});
+		});
+
+		$('#add-button').click(function(){
+			var texto = $('#name').val();
+			// a tag $ tbm é um criador de elementos, basta informar o elemento que queremos criar 
+			// a função .css recebe primeiro a propriedade e dp o valor
+			$('<li>').text(texto).css({'color' : '#f00', 'background-color' : '#eee'}).appendTo('#list');
+		});
+	</script>
+</body>
+</html>
